@@ -1,0 +1,31 @@
+.menu-bar{
+    -fx-background-color: #008BFF
+    -fx-opacity 0.5;
+    -fx-border-width: 2.0;
+}
+
+.button1{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: black;
+    
+}
+
+.button2: hover{
+    -fx-background-color: #008BFF;
+    -fx-border-color: black;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-font-size: 18px;
+    -fx-effect: dropshadow(three-pass-box, black, 20,0,0,0);
+}
+
+.table-view .column-header,
+.table-view .column-header-background.filler{
+    -fx-cell-size: 20;
+    -fx-background-color: #006DFF;
+}
+
+.table-row-cell: selected{
+    -fx-background-color: #006DFF;
+    
+}
