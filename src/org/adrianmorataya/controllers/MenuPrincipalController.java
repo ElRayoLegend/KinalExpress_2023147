@@ -21,6 +21,7 @@ public class MenuPrincipalController implements Initializable  {
     @FXML MenuItem btnMenuCompras;
     @FXML MenuItem btnTipoProducto;
     @FXML MenuItem btnCargoEmpleado;
+    @FXML MenuItem btnProductos;
     @FXML Button btnSalir;
   
     
@@ -50,6 +51,8 @@ public class MenuPrincipalController implements Initializable  {
             escenarioPrincipal.menuTipoProductoView();
         }else if(event.getSource() == btnCargoEmpleado){
             escenarioPrincipal.menuCargoEmpleadoView();
+        }else if(event.getSource() == btnProductos){
+            escenarioPrincipal.menuProductosView();
         }else if(event.getSource() == btnSalir){
             System.exit(0);
         }

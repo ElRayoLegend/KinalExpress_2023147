@@ -19,7 +19,7 @@
    <children>
       <ImageView fitHeight="567.0" fitWidth="1053.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/CLIENTES%20(1).jpg" />
+            <Image url="@../image/Fondo_Compras.jpg" />
          </image>
       </ImageView>
       <Button fx:id="btnRegresar3" layoutX="786.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="46.0" prefWidth="197.0" stylesheets="@../resources/MegaMarketCSS.css" text="REGRESAR">

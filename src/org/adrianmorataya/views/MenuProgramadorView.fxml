@@ -13,11 +13,6 @@
             <Image url="@../image/Programador.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="267.0" fitWidth="297.0" layoutX="21.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/LogoUser.png" />
-         </image>
-      </ImageView>
       <Button fx:id="btnRegresar2" layoutX="321.0" layoutY="341.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="70.0" prefWidth="148.0" stylesheets="@../resources/MegaMarketCSS.css" text="REGRESAR">
          <graphic>
             <ImageView fitHeight="72.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">

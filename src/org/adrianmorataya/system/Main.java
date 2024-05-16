@@ -14,6 +14,7 @@ import org.adrianmorataya.controllers.MenuCargoEmpleadoController;
 import org.adrianmorataya.controllers.MenuClientesController;
 import org.adrianmorataya.controllers.MenuComprasController;
 import org.adrianmorataya.controllers.MenuPrincipalController;
+import org.adrianmorataya.controllers.MenuProductosController;
 import org.adrianmorataya.controllers.MenuProgramadorController;
 import org.adrianmorataya.controllers.MenuProveedoresController;
 import org.adrianmorataya.controllers.MenuTipoProductoController;
@@ -116,6 +117,15 @@ public class Main extends Application{
             try{
                 MenuCargoEmpleadoController menuCargoEmpleadoView = (MenuCargoEmpleadoController)cambiarEscena("MenuCargoEmpleadoView.fxml", 1053, 567);
                 menuCargoEmpleadoView.setEscenarioPrincipal(this);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        
+        public void menuProductosView(){
+            try{
+                MenuProductosController menuProductosView = (MenuProductosController)cambiarEscena("MenuProductosView.fxml", 1053, 567);
+                menuProductosView.setEscenarioPrincipal(this);
             }catch(Exception e){
                 e.printStackTrace();
             }
