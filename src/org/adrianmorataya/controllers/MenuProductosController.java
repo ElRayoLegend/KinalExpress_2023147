@@ -130,7 +130,7 @@ public class MenuProductosController implements Initializable{
             ResultSet registro = procedimiento.executeQuery();
             while(registro.next()){
                 resultado = new TipoProducto(registro.getInt("codigoTipoProducto"),
-                        registro.getString("descripcionProducto")
+                        registro.getString("descripcion")
                 );
             }
         }catch(Exception e){
@@ -227,6 +227,7 @@ public class MenuProductosController implements Initializable{
         switch (tipoDeOperaciones) {
             case NINGUNO:
                 activarControles();
+                limpiarControles();
                 btnAgregar.setText("GUARDAR");
                 btnEliminar.setText("CANCELAR");
                 btnEditar.setDisable(true);
@@ -354,9 +355,12 @@ public class MenuProductosController implements Initializable{
         txtPrecioM.clear();
         txtExistencia.clear();
         txtNombProd.clear();
-        cmbCodProv.getSelectionModel().getSelectedItem();
-        cmbCodigoTipoP.getSelectionModel().getSelectedItem();
+        cmbCodProv.getSelectionModel().clearSelection();
+        cmbCodProv.setValue(null);
+        cmbCodigoTipoP.getSelectionModel().clearSelection();
+        cmbCodigoTipoP.setValue(null);
         imgProducto.setImage(null);
+        imgMostrar.setImage(null);
     }
     
     
