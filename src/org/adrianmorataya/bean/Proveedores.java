@@ -78,5 +78,8 @@ public class Proveedores {
         this.contactoProveedor = contactoProveedor;
     }
 
-
+    @Override
+        public String toString() {
+            return getCodigoProveedor() + " - " + getNombreProveedor() ;
+        }
 }

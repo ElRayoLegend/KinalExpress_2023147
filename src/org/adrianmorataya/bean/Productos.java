@@ -1,37 +1,39 @@
 package org.adrianmorataya.bean;
 
 public class Productos {
-    String codigoProducto;
+    String productoId;
     String descripcionProducto;
-    String imagenProducto;
-    double precioUnitario;
-    double precioDocena;
-    double precioMayor;
-    int existencia;
+    String nombreProducto;
+    byte[] imagenProducto;
+    double precioVentaUnitario;
+    double precioCompra;
+    double precioVentaMayor;
+    int cantidadStock;
     int codigoTipoProducto;
     int codigoProveedor;
 
     public Productos() {
     }
 
-    public Productos(String codigoProducto, String descripcionProducto, String imagenProducto, double precioUnitario, double precioDocena, double precioMayor, int existencia, int codigoTipoProducto, int codigoProveedor) {
-        this.codigoProducto = codigoProducto;
+    public Productos(String productoId, String descripcionProducto, String nombreProducto, byte[] imagenProducto, double precioVentaUnitario, double precioCompra, double precioVentaMayor, int cantidadStock, int codigoTipoProducto, int codigoProveedor) {
+        this.productoId = productoId;
         this.descripcionProducto = descripcionProducto;
+        this.nombreProducto = nombreProducto;
         this.imagenProducto = imagenProducto;
-        this.precioUnitario = precioUnitario;
-        this.precioDocena = precioDocena;
-        this.precioMayor = precioMayor;
-        this.existencia = existencia;
+        this.precioVentaUnitario = precioVentaUnitario;
+        this.precioCompra = precioCompra;
+        this.precioVentaMayor = precioVentaMayor;
+        this.cantidadStock = cantidadStock;
         this.codigoTipoProducto = codigoTipoProducto;
         this.codigoProveedor = codigoProveedor;
     }
 
-    public String getCodigoProducto() {
-        return codigoProducto;
+    public String getProductoId() {
+        return productoId;
     }
 
-    public void setCodigoProducto(String codigoProducto) {
-        this.codigoProducto = codigoProducto;
+    public void setProductoId(String productoId) {
+        this.productoId = productoId;
     }
 
     public String getDescripcionProducto() {
@@ -42,44 +44,52 @@ public class Productos {
         this.descripcionProducto = descripcionProducto;
     }
 
-    public String getImagenProducto() {
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+    public byte[] getImagenProducto() {
         return imagenProducto;
     }
 
-    public void setImagenProducto(String imagenProducto) {
+    public void setImagenProducto(byte[] imagenProducto) {
         this.imagenProducto = imagenProducto;
     }
 
-    public double getPrecioUnitario() {
-        return precioUnitario;
+    public double getPrecioVentaUnitario() {
+        return precioVentaUnitario;
     }
 
-    public void setPrecioUnitario(double precioUnitario) {
-        this.precioUnitario = precioUnitario;
+    public void setPrecioVentaUnitario(double precioVentaUnitario) {
+        this.precioVentaUnitario = precioVentaUnitario;
     }
 
-    public double getPrecioDocena() {
-        return precioDocena;
+    public double getPrecioCompra() {
+        return precioCompra;
     }
 
-    public void setPrecioDocena(double precioDocena) {
-        this.precioDocena = precioDocena;
+    public void setPrecioCompra(double precioCompra) {
+        this.precioCompra = precioCompra;
     }
 
-    public double getPrecioMayor() {
-        return precioMayor;
+    public double getPrecioVentaMayor() {
+        return precioVentaMayor;
     }
 
-    public void setPrecioMayor(double precioMayor) {
-        this.precioMayor = precioMayor;
+    public void setPrecioVentaMayor(double precioVentaMayor) {
+        this.precioVentaMayor = precioVentaMayor;
     }
 
-    public int getExistencia() {
-        return existencia;
+    public int getCantidadStock() {
+        return cantidadStock;
     }
 
-    public void setExistencia(int existencia) {
-        this.existencia = existencia;
+    public void setCantidadStock(int cantidadStock) {
+        this.cantidadStock = cantidadStock;
     }
 
     public int getCodigoTipoProducto() {
@@ -97,5 +107,6 @@ public class Productos {
     public void setCodigoProveedor(int codigoProveedor) {
         this.codigoProveedor = codigoProveedor;
     }
+
     
 }
