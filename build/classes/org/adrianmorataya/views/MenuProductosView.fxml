@@ -15,9 +15,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="575.0" prefWidth="916.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.adrianmorataya.controllers.MenuProductosController">
+<AnchorPane id="AnchorPane" prefHeight="569.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.adrianmorataya.controllers.MenuProductosController">
    <children>
-      <ImageView fitHeight="622.0" fitWidth="1023.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="622.0" fitWidth="1023.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/FONDO%20PRODUCTOS.jpg" />
          </image>
@@ -46,7 +46,7 @@
                   <String fx:value="button1" />
                </styleClass>
             </Button>
-            <Button fx:id="btnEditar" mnemonicParsing="false" prefHeight="104.0" prefWidth="276.0" stylesheets="@../resources/MegaMarketCSS.css" text="EDITAR" GridPane.rowIndex="2">
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="104.0" prefWidth="276.0" stylesheets="@../resources/MegaMarketCSS.css" text="EDITAR" GridPane.rowIndex="2">
                <graphic>
                   <ImageView fx:id="imgEditar" fitHeight="80.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -59,7 +59,7 @@
                   <String fx:value="button1" />
                </styleClass>
             </Button>
-            <Button fx:id="btnReporte" mnemonicParsing="false" prefHeight="73.0" prefWidth="276.0" stylesheets="@../resources/MegaMarketCSS.css" text="REPORTES" GridPane.rowIndex="3">
+            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="73.0" prefWidth="276.0" stylesheets="@../resources/MegaMarketCSS.css" text="REPORTES" GridPane.rowIndex="3">
                <graphic>
                   <ImageView fx:id="imgReporte" fitHeight="80.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -173,7 +173,7 @@
          </font>
       </Text>
       <ImageView fx:id="imgProducto" fitHeight="131.0" fitWidth="170.0" layoutX="437.0" layoutY="415.0" onDragDropped="#HandleDrop" onDragOver="#HandleDrag" pickOnBounds="true" preserveRatio="true" />
-      <Text layoutX="409.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ARRASTRA LA IMAGEN AQUÍ">
+      <Text fx:id="txtImagen" layoutX="409.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ARRASTRA LA IMAGEN AQUÍ">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>
@@ -184,5 +184,10 @@
             <Font name="Arial Black" size="14.0" />
          </font>
       </Text>
+      <Button fx:id="btnMisma" layoutX="457.0" layoutY="461.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="29.0" prefWidth="131.0" text="UTLIZAR MISMA IMAGEN">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -27,6 +27,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
+import javafx.scene.text.Text;
 import javax.swing.JOptionPane;
 import org.adrianmorataya.bean.Productos;
 import org.adrianmorataya.bean.Proveedores;
@@ -65,12 +66,14 @@ public class MenuProductosController implements Initializable{
     @FXML private Button btnEditar;
     @FXML private Button btnReporte;
     @FXML private Button btnRegresar;
+    @FXML private Button btnMisma;
     @FXML private ImageView imgAgregar;
     @FXML private ImageView imgEliminar;
     @FXML private ImageView imgEditar;
     @FXML private ImageView imgReporte;
     @FXML private ImageView imgProducto;
     @FXML private ImageView imgMostrar;
+    @FXML private Text txtImagen;
     
             
     @Override
@@ -88,6 +91,7 @@ public class MenuProductosController implements Initializable{
         cmbCodigoTipoP.setDisable(true);
         cmbCodProv.setDisable(true);
         imgProducto.setDisable(true);
+        btnMisma.setVisible(false);
     }
     
     public void cargarDatos(){
@@ -269,6 +273,98 @@ public class MenuProductosController implements Initializable{
         }
     }
     
+    public void editar(){
+        switch (tipoDeOperaciones) {
+            case NINGUNO:
+                if (tblProductos.getSelectionModel().getSelectedItem() != null) {
+                    btnEditar.setText("ACTUALIZAR");
+                    btnReporte.setText("CANCELAR");
+                    txtImagen.setText("ARRASTRA LA NUEVA IMAGEN AQUÍ");
+                    btnMisma.setVisible(true);
+                    btnAgregar.setDisable(true);
+                    btnEliminar.setDisable(true);
+                    imgEditar.setImage(new Image("/org/adrianmorataya/image/GUARDAR.png"));
+                    imgReporte.setImage(new Image("/org/adrianmorataya/image/CANCELAR.png"));
+                    activarControles();
+                    txtCodigoProd.setEditable(false);
+                    cmbCodigoTipoP.setDisable(true);
+                    cmbCodProv.setDisable(true);
+                    tipoDeOperaciones = operaciones.ACTUALIZAR;
+                }else{
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar algun elemento!");
+                }
+                break;
+            case ACTUALIZAR:
+                actualizar();
+                btnEditar.setText("EDITAR");
+                btnReporte.setText("REPORTES");
+                txtImagen.setText("ARRASTRA LA IMAGEN AQUÍ");
+                btnAgregar.setDisable(false);
+                btnEliminar.setDisable(false);
+                btnMisma.setVisible(false);
+                imgEditar.setImage(new Image("/org/adrianmorataya/image/UsuarioEditar.png"));
+                imgReporte.setImage(new Image("/org/adrianmorataya/image/UsuarioReportes.png"));
+                desactivarControles();
+                limpiarControles();
+                tipoDeOperaciones = operaciones.NINGUNO;
+                cargarDatos();
+                break;
+            default:
+                throw new AssertionError();
+        }
+    }
+    
+    public void actualizar(){
+        try{
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarProductos(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            Productos registro = ((Productos)tblProductos.getSelectionModel().getSelectedItem());
+            registro.setDescripcionProducto(txtDescPro.getText());
+            registro.setNombreProducto(txtNombProd.getText());
+            registro.setPrecioCompra(Double.parseDouble(txtPrecioD.getText()));
+            registro.setPrecioVentaUnitario(Double.parseDouble(txtPrecioU.getText()));
+            registro.setPrecioVentaMayor(Double.parseDouble(txtPrecioM.getText()));
+            registro.setCantidadStock(Integer.parseInt(txtExistencia.getText()));
+            if(imgProducto.getImage() != imgMostrar.getImage()){
+                registro.setImagenProducto(imagenEnBytes);
+            }
+            procedimiento.setString(1, registro.getProductoId());
+            procedimiento.setString(2, registro.getNombreProducto());
+            procedimiento.setBytes(3, registro.getImagenProducto());
+            procedimiento.setString(4, registro.getDescripcionProducto());
+            procedimiento.setInt(5, registro.getCantidadStock());
+            procedimiento.setDouble(6, registro.getPrecioVentaUnitario());
+            procedimiento.setDouble(7, registro.getPrecioVentaMayor());
+            procedimiento.setDouble(8, registro.getPrecioCompra());
+            procedimiento.setInt(9, registro.getCodigoProveedor());
+            procedimiento.setInt(10, registro.getCodigoTipoProducto());
+            procedimiento.execute();
+            listaProducto.add(registro);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void reporte(){
+        switch (tipoDeOperaciones) {
+            case ACTUALIZAR:
+                desactivarControles();
+                limpiarControles();
+                txtImagen.setText("ARRASTRA LA IMAGEN AQUÍ");
+                btnEditar.setText("EDITAR");
+                btnReporte.setText("REPORTES");
+                btnAgregar.setDisable(false);
+                btnEliminar.setDisable(false);
+                btnMisma.setVisible(false);
+                imgEditar.setImage(new Image("/org/adrianmorataya/image/UsuarioEditar.png"));
+                imgReporte.setImage(new Image("/org/adrianmorataya/image/UsuarioReportes.png"));
+                tipoDeOperaciones = operaciones.NINGUNO;
+                cargarDatos();
+                break;
+            default:
+                throw new AssertionError();
+        }
+    }
+    
     private byte[] imagenEnBytes;
     private byte[] convertirImagenABytes(File file) throws IOException {
         byte[] bytes = Files.readAllBytes(file.toPath());
@@ -390,6 +486,9 @@ private Image convertirBytesAImagen(byte[] bytes){
     public void handleButtonAction(ActionEvent event) {
         if (event.getSource() == btnRegresar){
             escenarioPrincipal.menuPrincipalView();
+        }else if (event.getSource() == btnMisma){
+            imgProducto.setImage(imgMostrar.getImage());
+            btnMisma.setVisible(false);
         }
     }
     
@@ -402,6 +501,7 @@ private Image convertirBytesAImagen(byte[] bytes){
     
     @FXML
     public void HandleDrop(DragEvent event) throws FileNotFoundException, IOException {
+        btnMisma.setVisible(false);
         List<File> files = event.getDragboard().getFiles();
         File file = files.get(0);
         Image img = new Image(new FileInputStream(file));
