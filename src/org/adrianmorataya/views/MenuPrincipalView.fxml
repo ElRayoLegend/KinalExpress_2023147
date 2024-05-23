@@ -32,8 +32,6 @@
           <Menu mnemonicParsing="false" text="Reportes">
             <items>
                   <MenuItem fx:id="btnFacturas" mnemonicParsing="false" onAction="#handleButtonAction" text="Facturas" />
-              <MenuItem mnemonicParsing="false" text="Email Proveedor" />
-                  <MenuItem mnemonicParsing="false" text="Telefono Proveedor" />
                   <MenuItem mnemonicParsing="false" text="Detalle Factura" />
                   <MenuItem mnemonicParsing="false" text="Detalle Compra" />
             </items>
