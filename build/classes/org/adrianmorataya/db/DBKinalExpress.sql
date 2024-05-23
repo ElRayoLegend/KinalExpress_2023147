@@ -63,7 +63,6 @@ CREATE TABLE Empleados (
     horaEntrada TIME,
     horaSalida TIME,
     cargoId INT,
-    encargadoId INT,
     PRIMARY KEY (empleadoId),
     CONSTRAINT FK_Cargos_Empleados FOREIGN KEY (cargoId) REFERENCES Cargos(codigoCargoEmpleado)
 );
@@ -105,7 +104,7 @@ CREATE TABLE EmailProveedor (
 -- Definición de la tabla Productos
 CREATE TABLE Productos (
     productoId INT NOT NULL,
-    imagenProducto VARCHAR(500) not null,
+    imagenProducto LONGBLOB not null,
     nombreProducto VARCHAR(50) NOT NULL,
     descripcionProducto VARCHAR(100) NOT NULL,
     cantidadStock INT NOT NULL,
@@ -440,12 +439,11 @@ CREATE PROCEDURE sp_AgregarEmpleados(
     IN sueldo DECIMAL(10,2),
     IN horaEntrada TIME,
     IN horaSalida TIME,
-    IN cargoId INT,
-    IN encargadoId INT
+    IN cargoId INT
 )
 BEGIN
-    INSERT INTO Empleados (empleadoId, nombreEmpleado, apellidoEmpleado, sueldo, horaEntrada, horaSalida, cargoId, encargadoId)
-    VALUES (empleadoId, nombreEmpleado, apellidoEmpleado, sueldo, horaEntrada, horaSalida, cargoId, encargadoId);
+    INSERT INTO Empleados (empleadoId, nombreEmpleado, apellidoEmpleado, sueldo, horaEntrada, horaSalida, cargoId)
+    VALUES (empleadoId, nombreEmpleado, apellidoEmpleado, sueldo, horaEntrada, horaSalida, cargoId);
 END$$
 DELIMITER ;
 
@@ -482,8 +480,7 @@ CREATE PROCEDURE sp_EditarEmpleados(
     IN suel DECIMAL(10,2), 
     IN horaEnt TIME, 
     IN horaSal TIME, 
-    IN cargId INT, 
-    IN encId INT
+    IN cargId INT
 )
 BEGIN
     UPDATE Empleados
@@ -493,8 +490,7 @@ BEGIN
         sueldo = suel,
         horaEntrada = horaEnt,
         horaSalida = horaSal,
-        cargoId = cargId,
-        encargadoId = encId
+        cargoId = cargId
     WHERE empleadoId = empId;
 END$$
 DELIMITER ;
@@ -680,7 +676,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE sp_AgregarProductos(
     IN productoId INT,
-    IN imagenProducto VARCHAR(500),
+    IN imagenProducto LONGBLOB,
     IN nombreProducto VARCHAR(50),
     IN descripcionProducto VARCHAR(100),
     IN cantidadStock INT,
@@ -725,7 +721,7 @@ DELIMITER $$
 CREATE PROCEDURE sp_EditarProductos(
     IN prodId INT, 
     IN nomProd VARCHAR(50), 
-    IN imgProd VARCHAR(500),
+    IN imgProd LONGBLOB,
     IN descProd VARCHAR(100), 
     IN cantStock INT, 
     IN precioUnit DECIMAL(10,2), 

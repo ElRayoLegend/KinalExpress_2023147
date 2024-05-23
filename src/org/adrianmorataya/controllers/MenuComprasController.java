@@ -150,13 +150,10 @@ public void actualizar(){
         Compras registro = ((Compras)tblCompras.getSelectionModel().getSelectedItem());
         registro.setDescripcion(txtDescComp.getText());
         LocalDate fechaSeleccionada = txtFechaDoc.getValue();
-        
-        // Convertir LocalDate a java.sql.Date
         Date fechaDocumento = Date.valueOf(fechaSeleccionada);
-        
         registro.setTotalDocumento(Double.parseDouble(txtTotComp.getText()));
         procedimiento.setInt(1, registro.getNumeroDocumento());
-        procedimiento.setDate(2, fechaDocumento); // Aquí se establece la fecha
+        procedimiento.setDate(2, fechaDocumento);
         procedimiento.setString(3, registro.getDescripcion());
         procedimiento.setDouble(4, registro.getTotalDocumento());
         procedimiento.execute();
@@ -278,6 +275,7 @@ public void actualizar(){
         txtNumDoc.clear();
         txtDescComp.clear();
         txtTotComp.clear();
+        txtFechaDoc.setValue(null);
     }
     
     
