@@ -99,11 +99,6 @@
             </Button>
          </children>
       </GridPane>
-      <ImageView fitHeight="84.0" fitWidth="92.0" layoutX="668.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/LogoUser.png" />
-         </image>
-      </ImageView>
       <TableView fx:id="tblTipoProducto" layoutX="416.0" layoutY="145.0" onMouseClicked="#seleccionarElemento" prefHeight="219.0" prefWidth="555.0" styleClass="column-header-background" stylesheets="@../resources/MegaMarketCSS.css">
          <columns>
             <TableColumn fx:id="colCodP" prefWidth="279.0" text="codigoTipoProducto" />

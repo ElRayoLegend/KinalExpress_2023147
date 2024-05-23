@@ -3,7 +3,6 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -16,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="569.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.adrianmorataya.controllers.MenuFacturaController">
+<AnchorPane id="AnchorPane" prefHeight="569.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.adrianmorataya.controllers.MenuEmailController">
    <children>
       <ImageView fitHeight="622.0" fitWidth="1023.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -88,18 +87,16 @@
             </Button>
          </children>
       </GridPane>
-      <TableView fx:id="tblFacturas" layoutX="278.0" layoutY="205.0" onMouseClicked="#selecionarElemento" prefHeight="345.0" prefWidth="713.0" styleClass="column-header-background" stylesheets="@../resources/MegaMarketCSS.css">
+      <TableView fx:id="tblEmail" layoutX="278.0" layoutY="215.0" onMouseClicked="#selecionarElemento" prefHeight="331.0" prefWidth="713.0" styleClass="column-header-background" stylesheets="@../resources/MegaMarketCSS.css">
          <columns>
-            <TableColumn fx:id="colFacturaId" prefWidth="118.8" text="facturaId" />
-            <TableColumn fx:id="colFechaF" prefWidth="118.8" text="fechaFactura" />
-            <TableColumn fx:id="colHoraF" prefWidth="118.8" text="horaFactura" />
-            <TableColumn fx:id="colTotalF" prefWidth="118.8" text="totalFactura" />
-            <TableColumn fx:id="colClienteId" prefWidth="118.8" text="codigoCliente" />
-            <TableColumn fx:id="colEmpleadoId" prefWidth="118.8" text="empleadoID" />
+            <TableColumn fx:id="colEmailId" prefWidth="178.3" text="codigoEmailProveedor" />
+            <TableColumn fx:id="colEmailP" prefWidth="178.3" text="emailProveedor" />
+            <TableColumn fx:id="colDesc" prefWidth="178.3" text="descripcion" />
+            <TableColumn fx:id="colProveedorId" prefWidth="178.3" text="codigoProveedor" />
          </columns>
       </TableView>
-      <TextField fx:id="txtTotalF" layoutX="619.0" layoutY="48.0" onAction="#agregar" prefHeight="29.0" prefWidth="123.0" />
-      <TextField fx:id="txtFacturaId" layoutX="261.0" layoutY="46.0" onAction="#agregar" prefHeight="29.0" prefWidth="123.0" />
+      <TextField fx:id="txtDesc" layoutX="619.0" layoutY="48.0" onAction="#agregar" prefHeight="29.0" prefWidth="123.0" />
+      <TextField fx:id="txtEmailId" layoutX="261.0" layoutY="46.0" onAction="#agregar" prefHeight="29.0" prefWidth="123.0" />
       <Text fill="WHITE" layoutX="134.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo Email P" wrappingWidth="130.0">
          <font>
             <Font name="Arial Black" size="15.0" />
@@ -128,12 +125,12 @@
             <String fx:value="button1" />
          </styleClass>
       </Button>
-      <ComboBox fx:id="cmbClienteId" layoutX="619.0" layoutY="111.0" prefHeight="29.0" prefWidth="123.0" />
+      <ComboBox fx:id="cmbProveedorId" layoutX="619.0" layoutY="111.0" prefHeight="29.0" prefWidth="123.0" />
       <Text fill="WHITE" layoutX="521.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>
       </Text>
-      <DatePicker fx:id="txtFechaF" layoutX="262.0" layoutY="108.0" prefHeight="29.0" prefWidth="123.0" />
+      <TextField fx:id="txtEmailP" layoutX="261.0" layoutY="108.0" onAction="#agregar" prefHeight="29.0" prefWidth="123.0" />
    </children>
 </AnchorPane>

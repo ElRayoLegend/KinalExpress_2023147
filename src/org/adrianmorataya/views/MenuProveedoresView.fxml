@@ -102,11 +102,6 @@
             </Button>
          </children>
       </GridPane>
-      <ImageView fitHeight="84.0" fitWidth="92.0" layoutX="537.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/LogoUser.png" />
-         </image>
-      </ImageView>
       <TableView fx:id="tblProveedores" layoutX="416.0" layoutY="145.0" onMouseClicked="#seleccionarElemento" prefHeight="219.0" prefWidth="585.0" styleClass="column-header-background" stylesheets="@../resources/MegaMarketCSS.css">
          <columns>
             <TableColumn fx:id="colCodigoP" prefWidth="83.57" text="codigoProveedor" />
@@ -164,7 +159,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="CONTACTO">
             <items>
-              <MenuItem fx:id="btnEmail" mnemonicParsing="false" text="Email Proveedor" />
+              <MenuItem fx:id="btnEmail" mnemonicParsing="false" onAction="#handleButtonAction" text="Email Proveedor" />
                   <MenuItem fx:id="btnTelefono" mnemonicParsing="false" text="Telefono Proveedor" />
             </items>
           </Menu>

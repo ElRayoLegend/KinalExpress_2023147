@@ -4,22 +4,20 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.ResourceBundle;
-import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import static javax.management.Query.value;
 import javax.swing.JOptionPane;
 import org.adrianmorataya.bean.Proveedores;
 import org.adrianmorataya.dao.Conexion;
@@ -50,6 +48,7 @@ public class MenuProveedoresController implements Initializable   {
     @FXML private Button btnEliminar;
     @FXML private Button btnEditar;
     @FXML private Button btnReporte;
+    @FXML private MenuItem btnEmail;
     @FXML private ImageView imgAgregar;
     @FXML private ImageView imgEliminar;
     @FXML private ImageView imgEditar;
@@ -330,6 +329,8 @@ public class MenuProveedoresController implements Initializable   {
     public void handleButtonAction(ActionEvent event) {
         if (event.getSource() == btnRegresar3){
             escenarioPrincipal.menuPrincipalView();
+        }else if(event.getSource() == btnEmail){
+            escenarioPrincipal.menuEmailView();
         }
     }
 }
