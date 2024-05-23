@@ -1,16 +1,16 @@
 package org.adrianmorataya.bean;
 
 public class Productos {
-    String productoId;
-    String descripcionProducto;
-    String nombreProducto;
-    byte[] imagenProducto;
-    double precioVentaUnitario;
-    double precioCompra;
-    double precioVentaMayor;
-    int cantidadStock;
-    int codigoTipoProducto;
-    int codigoProveedor;
+    private String productoId;
+    private String descripcionProducto;
+    private String nombreProducto;
+    private byte[] imagenProducto;
+    private double precioVentaUnitario;
+    private double precioCompra;
+    private double precioVentaMayor;
+    private int cantidadStock;
+    private int codigoTipoProducto;
+    private int codigoProveedor;
 
     public Productos() {
     }

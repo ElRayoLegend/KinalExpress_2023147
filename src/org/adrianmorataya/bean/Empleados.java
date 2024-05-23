@@ -3,13 +3,13 @@ package org.adrianmorataya.bean;
 import java.sql.Time;
 
 public class Empleados {
-    int empleadoId;
-    String nombreEmpleado;
-    String apellidoEmpleado;
-    double sueldo;
-    Time horaEntrada;
-    Time horaSalida;
-    int cargoId;
+    private int empleadoId;
+    private String nombreEmpleado;
+    private String apellidoEmpleado;
+    private double sueldo;
+    private Time horaEntrada;
+    private Time horaSalida;
+    private int cargoId;
 
     public Empleados() {
     }

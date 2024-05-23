@@ -1,7 +1,6 @@
 package org.adrianmorataya.controllers;
 
 import java.net.URL;
-import static java.time.Clock.system;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,6 +22,7 @@ public class MenuPrincipalController implements Initializable  {
     @FXML MenuItem btnCargoEmpleado;
     @FXML MenuItem btnProductos;
     @FXML MenuItem btnEmpleados;
+    @FXML MenuItem btnFacturas;
     @FXML Button btnSalir;
   
     
@@ -56,6 +56,8 @@ public class MenuPrincipalController implements Initializable  {
             escenarioPrincipal.menuProductosView();
         }else if(event.getSource() == btnEmpleados){
             escenarioPrincipal.menuEmpleadosView();
+        }else if(event.getSource() == btnFacturas){
+            escenarioPrincipal.menuFacturasView();
         }else if(event.getSource() == btnSalir){
             System.exit(0);
         }
