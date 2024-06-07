@@ -25,7 +25,7 @@ import org.adrianmorataya.controllers.MenuTipoProductoController;
 /*
 Nombre: Steven Adrian Soto Morataya
 Fecha de creacion: 11/04
-Fecha de actualizacion: 11/04
+Fecha de actualizacion: 31/05
 
 */
 
