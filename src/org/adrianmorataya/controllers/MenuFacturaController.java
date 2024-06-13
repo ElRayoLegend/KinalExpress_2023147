@@ -367,6 +367,15 @@ public class MenuFacturaController implements Initializable{
         
     }
     
+    /*
+    public void ImprimirReporte(){
+        Map parametros = new HashMap();
+        int factId = ((Factura)tblFactura.getSelectionModel().getSelectedItem()).getNumeroFactura();
+        parametros.put("factId", factId);
+        GenerarReportes.mostrarReportes("ReporteFacturaVespertina.jasper", "Factura de la tarde", parametros);
+    }
+*/
+    
     public void activarControles(){
         txtFacturaId.setDisable(false);
         txtTotalF.setDisable(false);

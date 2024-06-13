@@ -158,6 +158,17 @@ BEGIN
 END$$
 DELIMITER ;
 
+call sp_AgregarClientes(1, 52723542, 'Adrian', 'Morataya', '3ra calle, 340', '37406554', 'ssoto-2023147@kinal.edu.gt');
+call sp_AgregarClientes(2, 12345678, 'Maria', 'Gonzalez', 'Avenida Principal, 123', '98765432', 'maria@gmail.com');
+call sp_AgregarClientes(3, 87654321, 'Juan', 'Martinez', 'Calle Secundaria, 456', '45678901', 'juan@gmail.com');
+call sp_AgregarClientes(4, 23456789, 'Laura', 'Lopez', 'Calle Principal, 789', '34567890', 'laura@gmail.com');
+call sp_AgregarClientes(5, 34567890, 'Carlos', 'Perez', 'Avenida Central, 567', '23456789', 'carlos@gmail.com');
+call sp_AgregarClientes(6, 45678901, 'Ana', 'Rodriguez', 'Calle Central, 890', '12345678', 'ana@gmail.com');
+call sp_AgregarClientes(7, 56789012, 'Pedro', 'Sanchez', 'Avenida Norte, 678', '01234567', 'pedro@gmail.com');
+call sp_AgregarClientes(8, 67890123, 'Sofia', 'Gomez', 'Calle Norte, 901', '89012345', 'sofia@gmail.com');
+call sp_AgregarClientes(9, 78901234, 'Luis', 'Hernandez', 'Avenida Sur, 234', '78901234', 'luis@outlook.com');
+call sp_AgregarClientes(10, 89012345, 'Elena', 'Vasquez', 'Calle Sur, 567', '67890123', 'elena@gmail.com');
+
 -- Listar Clientes
 DELIMITER $$
 CREATE PROCEDURE sp_ListarClientes()
@@ -223,6 +234,17 @@ BEGIN
 END$$
 DELIMITER ;
 
+call sp_AgregarProveedores(1, 56793201, 'Dylan', 'Barrientos', '5a calle, 720, zona 3', 'Alimentos&Bebidas.tm', 'DylBarr@gmail.com');
+call sp_AgregarProveedores(2, 12345678, 'Marcela', 'Gutierrez', '3ra Avenida, 456, Zona 1', 'SuministrosCorp', 'marce_guti@gmail.com');
+call sp_AgregarProveedores(3, 87654321, 'Roberto', 'Perez', '2da Calle, 789, Zona 2', 'Tech Solutions', 'robperez@gmail.com');
+call sp_AgregarProveedores(4, 23456789, 'Camila', 'Lopez', '1ra Avenida, 890, Zona 4', 'ElectroHogar SA', 'camilalopez@gmail.com');
+call sp_AgregarProveedores(5, 34567890, 'Diego', 'Martinez', '4ta Calle, 123, Zona 5', 'IndustriaPlastica Ltda', 'diegomartinez@gmail.com');
+call sp_AgregarProveedores(6, 45678901, 'Laura', 'Hernandez', '6ta Avenida, 456, Zona 6', 'MueblesComfort', 'laurahernandez@gmail.com');
+call sp_AgregarProveedores(7, 56789012, 'Carlos', 'Gomez', '7ma Calle, 789, Zona 7', 'TextilArte', 'carlosgomez@gmail.com');
+call sp_AgregarProveedores(8, 67890123, 'Ana', 'Rodriguez', '8va Avenida, 901, Zona 8', 'ConstruccionesRapidas', 'anarodriguez@gmail.com');
+call sp_AgregarProveedores(9, 78901234, 'Pedro', 'Sanchez', '9na Calle, 234, Zona 9', 'PapeleriaModerna', 'pedrosanchez@gmail.com');
+call sp_AgregarProveedores(10, 89012345, 'Sofia', 'Vasquez', '10ma Avenida, 567, Zona 10', 'ElectrodomesticosExpress', 'sofiavasquez@gmail.com');
+
 -- Listar Proveedores
 DELIMITER $$
 CREATE PROCEDURE sp_ListarProveedores()
@@ -284,6 +306,17 @@ BEGIN
 END$$
 DELIMITER ;
 
+call sp_AgregarCargoEmpleado(1, 'Jefe', 'El es el encargado de liderar a los demas cargos.');
+call sp_AgregarCargoEmpleado(2, 'Asistente Administrativo', 'Encargado de apoyar en labores administrativas y logísticas.');
+call sp_AgregarCargoEmpleado(3, 'Contador', 'Responsable de llevar los registros contables de la empresa.');
+call sp_AgregarCargoEmpleado(4, 'Técnico de Soporte', 'Encargado de brindar soporte técnico a los usuarios.');
+call sp_AgregarCargoEmpleado(5, 'Diseñador Gráfico', 'Responsable de la creación y diseño de material gráfico.');
+call sp_AgregarCargoEmpleado(6, 'Analista de Marketing', 'Encargado de desarrollar estrategias de marketing.');
+call sp_AgregarCargoEmpleado(7, 'Gerente de Recursos Humanos', 'Responsable de la gestión del talento humano.');
+call sp_AgregarCargoEmpleado(8, 'Especialista en Ventas', 'Encargado de gestionar y cerrar acuerdos comerciales.');
+call sp_AgregarCargoEmpleado(9, 'Ingeniero de Software', 'Responsable del desarrollo de software de la empresa.');
+call sp_AgregarCargoEmpleado(10, 'Analista de Datos', 'Encargado de analizar grandes volúmenes de datos.');
+
 -- Listar CargoEmpleado
 DELIMITER $$
 CREATE PROCEDURE sp_ListarCargoEmpleado()
@@ -337,6 +370,17 @@ BEGIN
     VALUES (numeroDocumento, fechaDocumento, descripcion, totalDocumento);
 END$$
 DELIMITER ;
+
+call sp_AgregarCompras(1, '2000-02-05', 'Compras de consumo Basico', 250);
+call sp_AgregarCompras(2, '2024-03-10', 'Compras de Papelería', 150);
+call sp_AgregarCompras(3, '2023-04-15', 'Compras de Material de Oficina', 300);
+call sp_AgregarCompras(4, '2006-05-20', 'Compras de Suministros de Limpieza', 200);
+call sp_AgregarCompras(5, '2013-06-25', 'Compras de Equipos de Oficina', 1000);
+call sp_AgregarCompras(6, '2002-07-30', 'Compras de Software', 800);
+call sp_AgregarCompras(7, '2024-08-05', 'Compras de Hardware', 1500);
+call sp_AgregarCompras(8, '2024-09-10', 'Compras de Mobiliario', 2000);
+call sp_AgregarCompras(9, '2019-10-15', 'Compras de Material de Construcción', 2500);
+call sp_AgregarCompras(10, '2020-11-20', 'Compras de Materias Primas', 3000);
 
 -- Listar Compras
 DELIMITER $$
@@ -392,6 +436,17 @@ BEGIN
 END$$
 DELIMITER ;
 
+call sp_AgregarTipoProducto(1, 'Alimento');
+call sp_AgregarTipoProducto(2, 'Bebida');
+call sp_AgregarTipoProducto(3, 'Electrodoméstico');
+call sp_AgregarTipoProducto(4, 'Electrónico');
+call sp_AgregarTipoProducto(5, 'Mueble');
+call sp_AgregarTipoProducto(6, 'Ropa');
+call sp_AgregarTipoProducto(7, 'Accesorio');
+call sp_AgregarTipoProducto(8, 'Herramienta');
+call sp_AgregarTipoProducto(9, 'Juguete');
+call sp_AgregarTipoProducto(10, 'Libro');
+
 -- Listar TipoProducto
 DELIMITER $$
 CREATE PROCEDURE sp_ListarTipoProducto()
@@ -446,6 +501,17 @@ BEGIN
     VALUES (empleadoId, nombreEmpleado, apellidoEmpleado, sueldo, horaEntrada, horaSalida, cargoId);
 END$$
 DELIMITER ;
+
+call sp_AgregarEmpleados(1, 'David', 'Hernandez', 3500, '15:00', '20:00', 1);
+call sp_AgregarEmpleados(2, 'Laura', 'Gomez', 3000, '08:00', '17:00', 2);
+call sp_AgregarEmpleados(3, 'Carlos', 'Perez', 3200, '09:00', '18:00', 3);
+call sp_AgregarEmpleados(4, 'Ana', 'Martinez', 2800, '10:00', '19:00', 4);
+call sp_AgregarEmpleados(5, 'Sofia', 'Lopez', 3300, '11:00', '20:00', 5);
+call sp_AgregarEmpleados(6, 'Juan', 'Gonzalez', 3100, '12:00', '21:00', 6);
+call sp_AgregarEmpleados(7, 'Maria', 'Rodriguez', 3400, '13:00', '22:00', 7);
+call sp_AgregarEmpleados(8, 'Pedro', 'Sanchez', 2900, '14:00', '23:00', 8);
+call sp_AgregarEmpleados(9, 'Elena', 'Vasquez', 3600, '16:00', '01:00', 9);
+call sp_AgregarEmpleados(10, 'Diego', 'Gutierrez', 3800, '17:00', '02:00', 10);
 
 -- Listar Empleados
 DELIMITER $$
@@ -511,6 +577,17 @@ BEGIN
 END$$
 DELIMITER ;
 
+call sp_AgregarFacturas(1, '2005-06-06', '16:45', 250, 1, 1);
+call sp_AgregarFacturas(2, '2005-07-07', '12:30', 150, 2, 2);
+call sp_AgregarFacturas(3, '2005-08-08', '10:15', 300, 3, 3);
+call sp_AgregarFacturas(4, '2005-09-09', '14:00', 200, 4, 4);
+call sp_AgregarFacturas(5, '2005-10-10', '18:20', 1000, 5, 5);
+call sp_AgregarFacturas(6, '2005-11-11', '20:05', 800, 6, 6);
+call sp_AgregarFacturas(7, '2005-12-12', '09:45', 1500, 7, 7);
+call sp_AgregarFacturas(8, '2006-01-01', '17:30', 2000, 8, 8);
+call sp_AgregarFacturas(9, '2006-02-02', '15:10', 2500, 9, 9);
+call sp_AgregarFacturas(10, '2006-03-03', '11:55', 3000, 10, 10);
+
 -- Listar Facturas
 DELIMITER $$
 CREATE PROCEDURE sp_ListarFacturas()
@@ -572,6 +649,17 @@ BEGIN
 END$$
 DELIMITER ;
 
+call sp_AgregarTelefonoProveedor(1, '37406556', '56014889', 'El segundo numero no es usado con frecuencia', 1);
+call sp_AgregarTelefonoProveedor(2, '98765432', '56123456', 'Se puede contactar en cualquier momento', 2);
+call sp_AgregarTelefonoProveedor(3, '45678901', '56987654', 'Número principal de contacto', 3);
+call sp_AgregarTelefonoProveedor(4, '34567890', '56234567', 'Llamar solo en caso de emergencia', 4);
+call sp_AgregarTelefonoProveedor(5, '23456789', '56345678', 'Disponible en horario laboral', 5);
+call sp_AgregarTelefonoProveedor(6, '01234567', '56456789', 'Prefiere el contacto por correo electrónico', 6);
+call sp_AgregarTelefonoProveedor(7, '89012345', '56567890', 'Mantener comunicación vía WhatsApp', 7);
+call sp_AgregarTelefonoProveedor(8, '67890123', '56678901', 'Número de respaldo en caso de fallo', 8);
+call sp_AgregarTelefonoProveedor(9, '56789012', '56789012', 'Contacto directo del gerente de ventas', 9);
+call sp_AgregarTelefonoProveedor(10, '43210987', '56890123', 'Solo en caso de consultas urgentes', 10);
+
 -- Listar Teléfono Proveedor
 DELIMITER $$
 CREATE PROCEDURE sp_ListarTelefonoProveedor()
@@ -629,6 +717,17 @@ BEGIN
     VALUES (codigoEmailProveedor, emailProveedor, descripcion, codigoProveedor);
 END$$
 DELIMITER ;
+
+call sp_AgregarEmailProveedor(1, 'dylkBarr@gmail.com', 'Proveedor fiable', 1);
+call sp_AgregarEmailProveedor(2, 'marce_guti@gmail.com', 'Contacto principal de la empresa', 2);
+call sp_AgregarEmailProveedor(3, 'robperez@gmail.com', 'Correo electrónico preferido para comunicaciones', 3);
+call sp_AgregarEmailProveedor(4, 'camilalopez@gmail.com', 'Correo para notificaciones de pedidos', 4);
+call sp_AgregarEmailProveedor(5, 'diegomartinez@gmail.com', 'Contacto de atención al cliente', 5);
+call sp_AgregarEmailProveedor(6, 'laurahernandez@gmail.com', 'Correo para envío de facturas', 6);
+call sp_AgregarEmailProveedor(7, 'carlosgomez@gmail.com', 'Correo para consultas técnicas', 7);
+call sp_AgregarEmailProveedor(8, 'anarodriguez@gmail.com', 'Correo para solicitudes de información adicional', 8);
+call sp_AgregarEmailProveedor(9, 'pedrosanchez@gmail.com', 'Correo para cambios en pedidos', 9);
+call sp_AgregarEmailProveedor(10, 'sofiavasquez@gmail.com', 'Correo para seguimiento de proyectos', 10);
 
 -- Listar Email Proveedor
 DELIMITER $$
@@ -691,6 +790,17 @@ BEGIN
     VALUES (productoId, imagenProducto, nombreProducto, descripcionProducto, cantidadStock, precioVentaUnitario, precioVentaMayor, precioCompra, codigoProveedor, codigoTipoProducto);
 END$$
 DELIMITER ;
+
+call sp_AgregarProductos(1, '0', 'Lechuga', 'Vegetal comestible', 150, 6, 5, 10, 1, 1);
+call sp_AgregarProductos(2, '0', 'Manzana', 'Fruta fresca', 200, 7, 5, 12, 2, 1);
+call sp_AgregarProductos(3, '0', 'Arroz', 'Grano básico', 100, 8, 1, 15, 3, 1);
+call sp_AgregarProductos(4, '0', 'Aceite de oliva', 'Aceite vegetal', 300, 9, 2, 20, 4, 1);
+call sp_AgregarProductos(5, '0', 'Pollo', 'Carne de ave', 250, 10, 1, 25, 5, 1);
+call sp_AgregarProductos(6, '0', 'Cerveza', 'Bebida alcohólica', 180, 11, 2, 30, 6, 1);
+call sp_AgregarProductos(7, '0', 'Televisor', 'Electrodoméstico', 1000, 12, 3, 35, 7, 1);
+call sp_AgregarProductos(8, '0', 'Teléfono móvil', 'Dispositivo electrónico', 800, 13, 4, 40, 8, 1);
+call sp_AgregarProductos(9, '0', 'Silla', 'Mobiliario', 50, 14, 5, 45, 9, 1);
+call sp_AgregarProductos(10, '0', 'Camisa', 'Prenda de vestir', 30, 15, 6, 50, 10, 1);
 
 -- Listar Productos
 DELIMITER $$
@@ -759,6 +869,17 @@ BEGIN
 END$$
 DELIMITER ;
 
+call sp_AgregarDetalleFactura(1, 1, 1);
+call sp_AgregarDetalleFactura(2, 2, 2);
+call sp_AgregarDetalleFactura(3, 3, 3);
+call sp_AgregarDetalleFactura(4, 4, 4);
+call sp_AgregarDetalleFactura(5, 5, 5);
+call sp_AgregarDetalleFactura(6, 6, 6);
+call sp_AgregarDetalleFactura(7, 7, 7);
+call sp_AgregarDetalleFactura(8, 8, 8);
+call sp_AgregarDetalleFactura(9, 9, 9);
+call sp_AgregarDetalleFactura(10, 10, 10);
+
 -- Listar Detalle Factura
 DELIMITER $$
 CREATE PROCEDURE sp_ListarDetalleFactura()
@@ -813,6 +934,17 @@ BEGIN
 END$$
 DELIMITER ;
 
+call sp_AgregarDetalleCompra(1, 20, 1, 1);
+call sp_AgregarDetalleCompra(2, 15, 2, 2);
+call sp_AgregarDetalleCompra(3, 25, 3, 3);
+call sp_AgregarDetalleCompra(4, 30, 4, 4);
+call sp_AgregarDetalleCompra(5, 10, 5, 5);
+call sp_AgregarDetalleCompra(6, 18, 6, 6);
+call sp_AgregarDetalleCompra(7, 22, 7, 7);
+call sp_AgregarDetalleCompra(8, 12, 8, 8);
+call sp_AgregarDetalleCompra(9, 35, 9, 9);
+call sp_AgregarDetalleCompra(10, 40, 10, 10);
+
 -- Listar Detalle Compra
 DELIMITER $$
 CREATE PROCEDURE sp_ListarDetalleCompra()
@@ -854,3 +986,11 @@ BEGIN
     WHERE detalleCompraId = detCompId;
 END$$
 DELIMITER ;
+
+select * from detalleFactura
+	join Facturas on detallefactura.detalleFacturaId = facturas.facturaId
+    join clientes on facturas.codigoCliente = clientes.codigoCliente
+    join productos on detallefactura.detalleFacturaId = productos.productoId
+where Facturas.facturaId = 1;
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'RootKinal2024$';
