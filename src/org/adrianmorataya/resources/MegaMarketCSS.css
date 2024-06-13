@@ -1,7 +1,18 @@
 .menu-bar{
-    -fx-background-color: #008BFF
+    -fx-background-color: #CDCDCD
     -fx-opacity 0.5;
     -fx-border-width: 2.0;
+}
+
+.imageview{
+    -fx-border-color: white;
+}
+
+.button {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-text-fill: white;
+    -fx-border-width: 2px;
+    -fx-font-size: 14px;
 }
 
 .button1{
@@ -11,21 +22,34 @@
 }
 
 .button2: hover{
-    -fx-background-color: #008BFF;
-    -fx-border-color: black;
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
-    -fx-font-size: 18px;
-    -fx-effect: dropshadow(three-pass-box, black, 20,0,0,0);
+    -fx-background-color: #294260;
+}
+
+.table-view{
+    -fx-background-radius: 17px;
+    -fx-background-color: #173E5A;
+}
+
+.table-view .column-header{
+    -fx-background-radius: 17px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #336699;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.table-view .column-header-background .label {
+    -fx-text-fill: white;
 }
 
 .table-view .column-header,
 .table-view .column-header-background.filler{
-    -fx-cell-size: 20;
-    -fx-background-color: #006DFF;
+    -fx-background-color: transparent;
+    -fx-cell-size: 12;
 }
 
 .table-row-cell: selected{
-    -fx-background-color: #006DFF;
+    -fx-background-color: #CDCDCD;
     
 }

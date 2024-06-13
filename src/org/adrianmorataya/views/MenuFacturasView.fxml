@@ -11,9 +11,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -21,132 +19,111 @@
    <children>
       <ImageView fitHeight="622.0" fitWidth="1023.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/FONDO%20FACTURA.jpg" />
+            <Image url="@../image/FACTURAS_FONDO.jpg" />
          </image>
       </ImageView>
-      <GridPane layoutX="37.0" layoutY="186.0" prefHeight="360.0" prefWidth="168.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
+      <TableView fx:id="tblFacturas" layoutX="21.0" layoutY="93.0" onMouseClicked="#selecionarElemento" prefHeight="316.0" prefWidth="670.0" styleClass="column-header-background" stylesheets="@../resources/MegaMarketCSS.css">
+         <columns>
+            <TableColumn fx:id="colFacturaId" prefWidth="95.0" text="facturaId" />
+            <TableColumn fx:id="colFechaF" prefWidth="119.0" text="fechaFactura" />
+            <TableColumn fx:id="colHoraF" prefWidth="117.0" text="horaFactura" />
+            <TableColumn fx:id="colTotalF" prefWidth="113.0" text="totalFactura" />
+            <TableColumn fx:id="colClienteId" prefWidth="118.0" text="codigoCliente" />
+            <TableColumn fx:id="colEmpleadoId" prefWidth="107.0" text="empleadoID" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtTotalF" layoutX="884.0" layoutY="228.0" onAction="#agregar" prefHeight="29.0" prefWidth="123.0" />
+      <TextField fx:id="txtFacturaId" layoutX="885.0" layoutY="121.0" onAction="#agregar" prefHeight="29.0" prefWidth="123.0" />
+      <Text fill="WHITE" layoutX="783.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Facturas ID" wrappingWidth="123.0">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="761.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Factura">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="776.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Factura">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="765.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo Cliente">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cmbClienteId" layoutX="886.0" layoutY="283.0" prefHeight="29.0" prefWidth="123.0" />
+      <Text fill="WHITE" layoutX="776.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora Factura">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Text>
+      <JFXTimePicker fx:id="tmpHoraF" layoutX="890.0" layoutY="385.0" prefHeight="29.0" prefWidth="123.0" />
+      <DatePicker fx:id="txtFechaF" layoutX="886.0" layoutY="175.0" prefHeight="29.0" prefWidth="123.0" />
+      <Text fill="WHITE" layoutX="781.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empleado ID">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cmbEmpleadoId" layoutX="886.0" layoutY="337.0" prefHeight="29.0" prefWidth="123.0" />
+      <Button fx:id="btnRegresar" contentDisplay="TOP" layoutX="6.0" layoutY="475.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="87.0" prefWidth="87.0" stylesheets="@../resources/MegaMarketCSS.css" text="REGRESAR">
+         <styleClass>
+            <String fx:value="button2" />
+            <String fx:value="button" />
+         </styleClass>
+         <graphic>
+            <ImageView fitHeight="61.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Regresar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <HBox layoutX="499.0" layoutY="461.0" prefHeight="94.0" prefWidth="479.0">
          <children>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="8.0" prefWidth="276.0" stylesheets="@../resources/MegaMarketCSS.css" text="AGREGAR">
+            <Button fx:id="btnAgregar" contentDisplay="TOP" mnemonicParsing="false" onAction="#agregar" prefHeight="67.0" prefWidth="155.0" stylesheets="@../resources/MegaMarketCSS.css" text="AGREGAR">
                <styleClass>
                   <String fx:value="button2" />
-                  <String fx:value="button1" />
+                  <String fx:value="button" />
                </styleClass>
                <graphic>
-                  <ImageView fx:id="imgAgregar" fitHeight="62.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgAgregar" fitHeight="71.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/UsuarioAnadir.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="65.0" prefWidth="175.0" stylesheets="@../resources/MegaMarketCSS.css" text="EDITAR" GridPane.rowIndex="2">
+            <Button fx:id="btnEditar" contentDisplay="TOP" mnemonicParsing="false" onAction="#editar" prefHeight="65.0" prefWidth="155.0" styleClass="button2" stylesheets="@../resources/MegaMarketCSS.css" text="EDITAR">
                <graphic>
-                  <ImageView fx:id="imgEditar" fitHeight="60.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgEditar" fitHeight="71.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/UsuarioEditar.png" />
                      </image>
                   </ImageView>
                </graphic>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="button1" />
-               </styleClass>
             </Button>
-            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="59.0" prefWidth="182.0" stylesheets="@../resources/MegaMarketCSS.css" text="REPORTES" GridPane.rowIndex="3">
+            <Button fx:id="btnReporte" contentDisplay="TOP" mnemonicParsing="false" onAction="#reporte" prefHeight="66.0" prefWidth="155.0" styleClass="button2" stylesheets="@../resources/MegaMarketCSS.css" text="REPORTES">
                <graphic>
-                  <ImageView fx:id="imgReporte" fitHeight="56.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgReporte" fitHeight="71.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/UsuarioReportes.png" />
                      </image>
                   </ImageView>
                </graphic>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="button1" />
-               </styleClass>
             </Button>
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="66.0" prefWidth="177.0" stylesheets="@../resources/MegaMarketCSS.css" text="ELIMINAR" GridPane.rowIndex="1">
+            <Button fx:id="btnEliminar" contentDisplay="TOP" mnemonicParsing="false" onAction="#eliminar" prefHeight="66.0" prefWidth="155.0" styleClass="button2" stylesheets="@../resources/MegaMarketCSS.css" text="ELIMINAR">
                <graphic>
-                  <ImageView fx:id="imgEliminar" fitHeight="59.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgEliminar" fitHeight="71.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/UsuarioEliminar.png" />
                      </image>
                   </ImageView>
                </graphic>
-               <styleClass>
-                  <String fx:value="button2" />
-                  <String fx:value="button1" />
-               </styleClass>
             </Button>
          </children>
-      </GridPane>
-      <TableView fx:id="tblFacturas" layoutX="277.0" layoutY="191.0" onMouseClicked="#selecionarElemento" prefHeight="360.0" prefWidth="713.0" styleClass="column-header-background" stylesheets="@../resources/MegaMarketCSS.css">
-         <columns>
-            <TableColumn fx:id="colFacturaId" prefWidth="118.8" text="facturaId" />
-            <TableColumn fx:id="colFechaF" prefWidth="118.8" text="fechaFactura" />
-            <TableColumn fx:id="colHoraF" prefWidth="118.8" text="horaFactura" />
-            <TableColumn fx:id="colTotalF" prefWidth="118.8" text="totalFactura" />
-            <TableColumn fx:id="colClienteId" prefWidth="118.8" text="codigoCliente" />
-            <TableColumn fx:id="colEmpleadoId" prefWidth="118.8" text="empleadoID" />
-         </columns>
-      </TableView>
-      <TextField fx:id="txtTotalF" layoutX="619.0" layoutY="20.0" onAction="#agregar" prefHeight="29.0" prefWidth="123.0" />
-      <TextField fx:id="txtFacturaId" layoutX="261.0" layoutY="18.0" onAction="#agregar" prefHeight="29.0" prefWidth="123.0" />
-      <Text layoutX="159.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Facturas ID" wrappingWidth="123.0">
-         <font>
-            <Font name="Arial Black" size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="137.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Factura">
-         <font>
-            <Font name="Arial Black" size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="511.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Factura">
-         <font>
-            <Font name="Arial Black" size="14.0" />
-         </font>
-      </Text>
-      <Text layoutX="498.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo Cliente">
-         <font>
-            <Font name="Arial Black" size="14.0" />
-         </font>
-      </Text>
-      <Button fx:id="btnRegresar" layoutX="867.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="57.0" prefWidth="150.0" stylesheets="@../resources/MegaMarketCSS.css" text="REGRESAR">
-         <graphic>
-            <ImageView fitHeight="62.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/Regresar.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <styleClass>
-            <String fx:value="button2" />
-            <String fx:value="button1" />
-         </styleClass>
-      </Button>
-      <ComboBox fx:id="cmbClienteId" layoutX="619.0" layoutY="61.0" prefHeight="29.0" prefWidth="123.0" />
-      <Text layoutX="152.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora Factura">
-         <font>
-            <Font name="Arial Black" size="14.0" />
-         </font>
-      </Text>
-      <JFXTimePicker fx:id="tmpHoraF" layoutX="262.0" layoutY="106.0" prefHeight="29.0" prefWidth="123.0" />
-      <DatePicker fx:id="txtFechaF" layoutX="262.0" layoutY="58.0" prefHeight="29.0" prefWidth="123.0" />
-      <Text layoutX="514.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empleado ID">
-         <font>
-            <Font name="Arial Black" size="14.0" />
-         </font>
-      </Text>
-      <ComboBox fx:id="cmbEmpleadoId" layoutX="619.0" layoutY="105.0" prefHeight="29.0" prefWidth="123.0" />
+      </HBox>
    </children>
 </AnchorPane>

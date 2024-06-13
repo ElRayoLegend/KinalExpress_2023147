@@ -18,7 +18,7 @@
    <children>
       <ImageView fitHeight="567.0" fitWidth="1053.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/Cargo_Fondo.jpg" />
+            <Image url="@../image/CARGOS.jpg" />
          </image>
       </ImageView>
       <Button fx:id="btnRegresar3" layoutX="786.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="46.0" prefWidth="197.0" stylesheets="@../resources/MegaMarketCSS.css" text="REGRESAR">
@@ -99,11 +99,6 @@
             </Button>
          </children>
       </GridPane>
-      <ImageView fitHeight="84.0" fitWidth="92.0" layoutX="413.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/LogoUser.png" />
-         </image>
-      </ImageView>
       <TableView fx:id="tblCargoEmpleado" layoutX="416.0" layoutY="145.0" onMouseClicked="#seleccionarElemento" prefHeight="219.0" prefWidth="555.0" styleClass="column-header-background" stylesheets="@../resources/MegaMarketCSS.css">
          <columns>
             <TableColumn fx:id="colCodCE" prefWidth="177.0" text="codigoCargoEmpleado" />

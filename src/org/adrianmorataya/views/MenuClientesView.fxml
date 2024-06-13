@@ -18,7 +18,7 @@
    <children>
       <ImageView fitHeight="622.0" fitWidth="1023.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/FondoClientes.png" />
+            <Image url="@../image/CLIENTES%20(5).jpg" />
          </image>
       </ImageView>
       <GridPane layoutX="85.0" layoutY="150.0" prefHeight="370.0" prefWidth="278.0">
@@ -86,11 +86,6 @@
             </Button>
          </children>
       </GridPane>
-      <ImageView fitHeight="84.0" fitWidth="92.0" layoutX="406.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/LogoUser.png" />
-         </image>
-      </ImageView>
       <TableView fx:id="tblClientes" layoutX="406.0" layoutY="135.0" onMouseClicked="#seleccionarElemento" prefHeight="219.0" prefWidth="585.0" styleClass="column-header-background" stylesheets="@../resources/MegaMarketCSS.css">
         <columns>
           <TableColumn fx:id="colCodigoC" prefWidth="83.57" text="codigoCliente" />
