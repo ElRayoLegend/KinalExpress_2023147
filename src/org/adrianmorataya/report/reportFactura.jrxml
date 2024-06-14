@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportFactura" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b20dd2a7-77f6-40fb-93b7-aa094c6701e6">
 	<property name="ireport.zoom" value="1.0000000000000004"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="320"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="facId" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -91,6 +91,7 @@ where Facturas.facturaId = $P{facId}]]>
 	<variable name="CONIVA" class="java.lang.Double">
 		<variableExpression><![CDATA[$V{sinIVA}+$V{IVA}]]></variableExpression>
 	</variable>
+	<variable name="TOTAL" class="java.lang.Double"/>
 	<background>
 		<band height="802" splitType="Stretch">
 			<image>
@@ -105,7 +106,7 @@ where Facturas.facturaId = $P{facId}]]>
 	<pageHeader>
 		<band height="83" splitType="Stretch">
 			<textField>
-				<reportElement x="72" y="32" width="333" height="49" uuid="d607ea2e-4314-45ea-8bd4-89e9c206a797"/>
+				<reportElement x="72" y="32" width="337" height="49" uuid="d607ea2e-4314-45ea-8bd4-89e9c206a797"/>
 				<textElement>
 					<font fontName="Bodoni MT Black" size="24" isBold="true"/>
 				</textElement>
@@ -186,26 +187,61 @@ where Facturas.facturaId = $P{facId}]]>
 				<reportElement x="445" y="28" width="100" height="20" uuid="792f9226-a994-4397-b63d-d490a48f3d8d"/>
 				<textFieldExpression><![CDATA["Q" + $F{precioVentaUnitario}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#.##" isBlankWhenNull="true">
-				<reportElement x="24" y="128" width="292" height="22" uuid="67a55ba8-f18a-4511-a9da-86855f6b1f73"/>
+			<textField pattern="#0.00">
+				<reportElement x="190" y="151" width="184" height="22" uuid="836364ab-30c5-425a-b6cd-0f482fb2c571"/>
 				<textElement>
-					<font fontName="Britannic Bold" size="18" isBold="true" isItalic="true" isUnderline="false"/>
+					<font size="16" isBold="false" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["PRECIO SIN IVA: " + $V{sinIVA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$V{sinIVA}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="24" y="160" width="303" height="20" uuid="9ff34c8d-e335-4a96-b517-4ca4fdcc1244"/>
+			<textField pattern="#0.00">
+				<reportElement x="191" y="184" width="184" height="30" uuid="9b3c24e5-ab28-4b36-9a49-0daa700230e6"/>
 				<textElement>
-					<font fontName="Britannic Bold" size="18" isBold="true" isItalic="true"/>
+					<font size="16" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["PRECIO CON IVA: " + $V{CONIVA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$V{IVA}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="24" y="193" width="225" height="20" uuid="80148714-95ef-4b29-a000-ac74e350dd44"/>
+			<staticText>
+				<reportElement x="35" y="151" width="159" height="22" uuid="cf9590a5-027e-4f4a-9122-238f6fb513ff"/>
 				<textElement>
-					<font fontName="Britannic Bold" size="18" isBold="true" isItalic="true"/>
+					<font size="16" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["CANT. IVA: " + $V{IVA}]]></textFieldExpression>
+				<text><![CDATA[PRECIO SIN IVA:   Q]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="117" width="159" height="22" uuid="3b02ed7d-4f95-4da2-b005-0d9a4e8e389d"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO CON IVA: Q]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="184" width="159" height="29" uuid="7a79ffc5-6dc0-4e1a-82bb-61c539e00d86"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD IVA:     Q]]></text>
+			</staticText>
+			<textField pattern="#0.00">
+				<reportElement x="192" y="118" width="183" height="33" uuid="9e74163f-bf1b-4d24-9b81-81804d4a31eb"/>
+				<textElement>
+					<font size="16" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{CONIVA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="302" y="151" width="159" height="22" uuid="45b98e2c-f041-4895-a458-4b06f3ea89d1"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL FACTURA: Q]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="461" y="152" width="100" height="34" uuid="0e3b8af5-a2de-4af6-ab6e-944d700d4b37"/>
+				<textElement>
+					<font size="16" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

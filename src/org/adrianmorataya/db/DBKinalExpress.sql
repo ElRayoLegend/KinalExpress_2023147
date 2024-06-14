@@ -987,10 +987,4 @@ BEGIN
 END$$
 DELIMITER ;
 
-select * from detalleFactura
-	join Facturas on detallefactura.detalleFacturaId = facturas.facturaId
-    join clientes on facturas.codigoCliente = clientes.codigoCliente
-    join productos on detallefactura.detalleFacturaId = productos.productoId
-where Facturas.facturaId = 1;
-
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'RootKinal2024$';
+-- ALTER USER '2023147_IN5BV' IDENTIFIED WITH mysql_native_password BY 'abc123!!';

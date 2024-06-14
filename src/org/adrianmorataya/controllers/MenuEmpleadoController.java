@@ -9,6 +9,8 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +29,7 @@ import javax.swing.JOptionPane;
 import org.adrianmorataya.bean.CargoEmpleado;
 import org.adrianmorataya.bean.Empleados;
 import org.adrianmorataya.dao.Conexion;
+import org.adrianmorataya.report.GenerarReportes;
 import org.adrianmorataya.system.Main;
 
 public class MenuEmpleadoController implements Initializable{
@@ -257,8 +260,11 @@ public class MenuEmpleadoController implements Initializable{
         }
     }
     
-    public void reporte(){
+    public void reporte() {
         switch (tipoDeOperaciones) {
+            case NINGUNO:
+                imprimirReporte();
+                break;
             case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
@@ -271,9 +277,13 @@ public class MenuEmpleadoController implements Initializable{
                 tipoDeOperaciones = operaciones.NINGUNO;
                 cargarDatos();
                 break;
-            default:
-                throw new AssertionError();
         }
+    }
+
+    public void imprimirReporte(){
+            Map parametros = new HashMap();
+            parametros.put("empleadoId", null);
+            GenerarReportes.mostrarReportes("reportEmpleado.jasper", "Reporte de Empleado", parametros);
     }
     
     public void guardar(){

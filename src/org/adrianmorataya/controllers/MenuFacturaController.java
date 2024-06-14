@@ -353,9 +353,10 @@ public class MenuFacturaController implements Initializable{
     
     public void reporte() {
         switch (tipoDeOperaciones) {
-            case ACTUALIZAR:
-                case NINGUNO:
+            case NINGUNO:
                 imprimirReporte();
+                break;
+            case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
                 btnEditar.setText("EDITAR");
@@ -365,15 +366,20 @@ public class MenuFacturaController implements Initializable{
                 imgEditar.setImage(new Image("/org/adrianmorataya/image/UsuarioEditar.png"));
                 imgReporte.setImage(new Image("/org/adrianmorataya/image/UsuarioReportes.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;
+                cargarDatos();
+                break;
         }
     }
 
     public void imprimirReporte(){
-         Map parametros = new HashMap();
-         int factID = ((Facturas)tblFacturas.getSelectionModel().getSelectedItem()).getFacturaId();
-         parametros.put("factID", factID);
-         GenerarReportes.mostrarReportes("ReporteFactura.jasper", "Reporte de Facturas", parametros);
-
+         if (tblFacturas.getSelectionModel().getSelectedItem() != null) {
+            Map parametros = new HashMap();
+            int facId = ((Facturas)tblFacturas.getSelectionModel().getSelectedItem()).getFacturaId();
+            parametros.put("facId", facId);
+            GenerarReportes.mostrarReportes("reportFactura.jasper", "Reporte de Facturas", parametros);
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar algun elemento!");
+        }
     }
     
     public void activarControles(){

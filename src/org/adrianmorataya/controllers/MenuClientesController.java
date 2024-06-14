@@ -276,9 +276,8 @@ public class MenuClientesController implements Initializable   {
 
     public void imprimirReporte(){
          Map parametros = new HashMap();
-         int clieId = ((Clientes)tblClientes.getSelectionModel().getSelectedItem()).getCodigoCliente();
-         parametros.put("clieId", clieId);
-         GenerarReportes.mostrarReportes("reporteCliente.jasper", "Reporte de Cliente", parametros);
+         parametros.put("codigoCliente", null);
+         GenerarReportes.mostrarReportes("reportCliente.jasper", "Reporte de Cliente", parametros);
 
     }
     

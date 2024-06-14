@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportProveedor" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="abaa6e06-eb5d-4f0d-b78f-92a2cdccd5bf">
+	<property name="ireport.zoom" value="1.2100000000000146"/>
+	<property name="ireport.x" value="33"/>
+	<property name="ireport.y" value="293"/>
+	<queryString>
+		<![CDATA[call sp_listarProveedores]]>
+	</queryString>
+	<field name="codigoProveedor" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NITProveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreProveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidoProveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccionProveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="razonSocial" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contactoProveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="555" height="802" uuid="481ec38a-c574-499e-a26c-9a7a3aef3d28"/>
+				<imageExpression><![CDATA["C:\\Users\\PC\\Documents\\KINAL EXPRESS\\KinalExpress_2023147\\src\\org\\adrianmorataya\\image\\MEMBRETADA MEGA MARKET.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="133" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="22" width="140" height="20" uuid="2ec6b0b3-81ca-429b-8fd6-e6def9f9119b"/>
+				<textElement>
+					<font fontName="Arial Black" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE PROVEEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="22" width="151" height="20" uuid="dde3d11b-2d78-417f-8331-8efbcdf9a4f1"/>
+				<textElement>
+					<font fontName="Arial Black" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[APELLIDO PROVEEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="22" width="130" height="20" uuid="a62d551b-9ffb-419f-a4ec-c328ead34d0e"/>
+				<textElement>
+					<font fontName="Arial Black" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[NIT PROVEEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="22" width="82" height="20" uuid="a5ffffe3-4629-402a-8547-083a7648585b"/>
+				<textElement>
+					<font fontName="Arial Black" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[CONTACTO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="154" y="0" width="1" height="61" uuid="6ba1c2d6-48ce-4910-b18d-d8f825afec16"/>
+			</line>
+			<line>
+				<reportElement x="319" y="0" width="1" height="61" uuid="fcd1ee72-529b-4adb-8c39-78816ad0aa28"/>
+			</line>
+			<line>
+				<reportElement x="440" y="0" width="1" height="61" uuid="1e50cb00-0018-4a28-9cef-1a96c467a819"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="0a104bbd-b7b9-46dd-a778-199dccaefcc1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="1" height="60" uuid="756d5f4d-6882-40d3-ba47-ec404fdb2527"/>
+			</line>
+			<line>
+				<reportElement x="554" y="1" width="1" height="60" uuid="16e5386b-def3-40bd-be19-a76bd9f1f43c"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="25" y="60" width="106" height="20" uuid="95c1c25a-1701-4307-bb5a-95ff9e205e8d"/>
+				<textFieldExpression><![CDATA[$F{nombreProveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="60" width="108" height="20" uuid="1bcd61ef-04fc-4743-9f08-156f23981a63"/>
+				<textFieldExpression><![CDATA[$F{apellidoProveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="60" width="100" height="20" uuid="a4ee0686-f658-4d03-8777-9dafbadc70c0"/>
+				<textFieldExpression><![CDATA[$F{NITProveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="60" width="104" height="20" uuid="55234731-13a0-4062-8232-a3e0de723a32"/>
+				<textFieldExpression><![CDATA[$F{contactoProveedor}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="b5769e47-277e-4025-8389-5d455e8a4bf0"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="1" height="124" uuid="6d12e9e7-1a56-4919-98a7-673203ad865e"/>
+			</line>
+			<line>
+				<reportElement x="154" y="1" width="1" height="124" uuid="f99ea3e8-3e32-4c6e-9924-c436e8b49901"/>
+			</line>
+			<line>
+				<reportElement x="319" y="0" width="1" height="124" uuid="3173fb78-c82d-4f66-9d8c-79eb676ec3eb"/>
+			</line>
+			<line>
+				<reportElement x="440" y="0" width="1" height="124" uuid="6b3373d9-cc3c-4237-8287-cab2b9058881"/>
+			</line>
+			<line>
+				<reportElement x="554" y="0" width="1" height="124" uuid="bb2713e8-ee7e-462f-9592-13634ed0b817"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
