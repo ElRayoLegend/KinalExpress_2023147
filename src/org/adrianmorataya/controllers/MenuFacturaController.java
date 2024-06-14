@@ -11,6 +11,8 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,6 +33,7 @@ import org.adrianmorataya.bean.Clientes;
 import org.adrianmorataya.bean.Empleados;
 import org.adrianmorataya.bean.Facturas;
 import org.adrianmorataya.dao.Conexion;
+import org.adrianmorataya.report.GenerarReportes;
 import org.adrianmorataya.system.Main;
 
 public class MenuFacturaController implements Initializable{
@@ -315,25 +318,6 @@ public class MenuFacturaController implements Initializable{
         }
     }
     
-    public void reporte(){
-        switch (tipoDeOperaciones) {
-            case ACTUALIZAR:
-                desactivarControles();
-                limpiarControles();
-                btnEditar.setText("EDITAR");
-                btnReporte.setText("REPORTES");
-                btnAgregar.setDisable(false);
-                btnEliminar.setDisable(false);
-                imgEditar.setImage(new Image("/org/adrianmorataya/image/UsuarioEditar.png"));
-                imgReporte.setImage(new Image("/org/adrianmorataya/image/UsuarioReportes.png"));
-                tipoDeOperaciones = operaciones.NINGUNO;
-                cargarDatos();
-                break;
-            default:
-                throw new AssertionError();
-        }
-    }
-    
     public void guardar(){
         Facturas registro = new Facturas();
         registro.setFacturaId(Integer.parseInt(txtFacturaId.getText()));
@@ -367,14 +351,30 @@ public class MenuFacturaController implements Initializable{
         
     }
     
-    /*
-    public void ImprimirReporte(){
-        Map parametros = new HashMap();
-        int factId = ((Factura)tblFactura.getSelectionModel().getSelectedItem()).getNumeroFactura();
-        parametros.put("factId", factId);
-        GenerarReportes.mostrarReportes("ReporteFacturaVespertina.jasper", "Factura de la tarde", parametros);
+    public void reporte() {
+        switch (tipoDeOperaciones) {
+            case ACTUALIZAR:
+                case NINGUNO:
+                imprimirReporte();
+                desactivarControles();
+                limpiarControles();
+                btnEditar.setText("EDITAR");
+                btnReporte.setText("REPORTES");
+                btnAgregar.setDisable(false);
+                btnEliminar.setDisable(false);
+                imgEditar.setImage(new Image("/org/adrianmorataya/image/UsuarioEditar.png"));
+                imgReporte.setImage(new Image("/org/adrianmorataya/image/UsuarioReportes.png"));
+                tipoDeOperaciones = operaciones.NINGUNO;
+        }
     }
-*/
+
+    public void imprimirReporte(){
+         Map parametros = new HashMap();
+         int factID = ((Facturas)tblFacturas.getSelectionModel().getSelectedItem()).getFacturaId();
+         parametros.put("factID", factID);
+         GenerarReportes.mostrarReportes("ReporteFactura.jasper", "Reporte de Facturas", parametros);
+
+    }
     
     public void activarControles(){
         txtFacturaId.setDisable(false);
